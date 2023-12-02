@@ -1,15 +1,17 @@
 package projetoEscola;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Coordenador extends Usuario {
 	
 	Scanner scanner = new Scanner(System.in);
+	protected static List<Coordenador> coordenadores = new ArrayList<>();
 	
 	public Coordenador(String login, String senha, String nome, Integer idade) {
 		super(login, senha, nome, idade);
-		// TODO Auto-generated constructor stub
+		Coordenador.coordenadores.add(this);
 	}
 
 	private Responsavel cadastrarResponsavel() {

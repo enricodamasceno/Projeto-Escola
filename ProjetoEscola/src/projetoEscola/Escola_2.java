@@ -14,34 +14,34 @@ public class Escola_2 {
 
 		//////////////// INSTANCIAMENTO DE USUÁRIOS ///////////////
 		
-		// CRIANDO LISTA DE USUARIOS
-		List<Usuario> usuarios = new ArrayList<>();
-
-		// INSTANCIANDO COORDENADORES
-		List<Coordenador> coordenadores = new ArrayList<>();
-
-		// INSTANCIANDO PROFESSORES 
-		List<Professor> professores = new ArrayList<>();
-
-		// INSTANCIANDO RESPONSÁVEIS
-		List<Responsavel> responsaveis = new ArrayList<>();
-
+		// // CRIANDO LISTA DE USUARIOS
+		// List<Usuario> usuarios = new ArrayList<>();
+		// 
+		// // INSTANCIANDO COORDENADORES
+		// List<Coordenador> coordenadores = new ArrayList<>();
+		// 
+		// // INSTANCIANDO PROFESSORES 
+		// List<Professor> professores = new ArrayList<>();
+		// 
+		// // INSTANCIANDO RESPONSÁVEIS
+		// List<Responsavel> responsaveis = new ArrayList<>();
+		// 
+		// // INSTANCIANDO ALUNOS 
+		// List<Aluno> alunos = new ArrayList<>();
+		
 		// Criando o responsável Jeferson
 		List<Aluno> alunosJeferson = new ArrayList<>();
-		responsaveis.add(new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, alunosJeferson));
-
-		// INSTANCIANDO ALUNOS 
-		List<Aluno> alunos = new ArrayList<>();
+		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, alunosJeferson);
 
 		// Criando o aluno Roberto, cujo responsável é Jeferson
-		alunos.add(new Aluno("betohot", "amoeba123", "Roberto Arley", 15, responsaveis.get(0)));
+		new Aluno("betohot", "amoeba123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
 
 		// Colocando o aluno Roberto dentro da lista de alunos do responsável Jeferson:
-		alunosJeferson.add(alunos.get(0));
+		alunosJeferson.add(Aluno.alunos.get(0));
 
-		// Colocando Jeferson e Roberto na lista de usuários:
-		usuarios.add(alunos.get(0));
-		usuarios.add(responsaveis.get(0));
+		// // Colocando Jeferson e Roberto na lista de usuários:
+		// usuarios.add(alunos.get(0));
+		// usuarios.add(responsaveis.get(0));
 
 		// INTRODUÇÃO AO SISTEMA
 		System.out.println("Bem-vindo ao Sistema da Escola!");
@@ -53,7 +53,7 @@ public class Escola_2 {
 		String senha = scanner.nextLine();
 
 		// VERIFICAÇÃO DO USUÁRIO
-		for (Usuario usuario: usuarios) {
+		for (Usuario usuario: Usuario.usuarios) {
 
 			if (usuario.verificarUsuario(login, senha)) {
 				usuarioAutenticado = usuario;
