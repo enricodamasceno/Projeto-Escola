@@ -31,6 +31,8 @@ public abstract class Usuario {
 	  
 	  // Método abstrato para retornar o tipo do usuário no login.
 	  public abstract String getTipoUsuario();
+
+	  public abstract void acoesUsuario();
 	  
 	  public String getLogin() {
 		  return login;

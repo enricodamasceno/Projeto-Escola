@@ -43,4 +43,9 @@ public class Professor extends Usuario {
 		return "Professor";
 	}
 
+  @Override
+	public void acoesUsuario() {
+		
+	}
+
 }

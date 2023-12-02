@@ -57,5 +57,10 @@ public class Coordenador extends Usuario {
 	public String getTipoUsuario() {
 		return "Coordenador";
 	}
+
+	@Override
+	public void acoesUsuario() {
+		
+	}
 	
 }
