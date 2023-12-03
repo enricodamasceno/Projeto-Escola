@@ -12,7 +12,7 @@ public class Responsavel extends Usuario {
 	protected static List<Responsavel> responsaveis = new ArrayList<>();
 	
 	public Responsavel(String login, String senha, String nome, Integer idade, List<Aluno> alunos) {
-		   // Chama o construtor da superclasse Cliente para inicializar atributos herdados
+		   // Chama o construtor da superclasse Usuário para inicializar atributos herdados
 		    super(login, senha, nome, idade);
 		    this.alunos = alunos;
 			Responsavel.responsaveis.add(this);
@@ -22,6 +22,7 @@ public class Responsavel extends Usuario {
 		return this.alunos;
 	}
 	 
+	// Pede ao usuário informações necessárias para o instanciamento de um novo aluno dependente do responsável usuário
 	private void matricularAluno() {
 		System.out.println("OPÇÃO ESCOLHIDA: MATRICULAR ALUNO");
 		System.out.println("Digite o nome do aluno: ");
@@ -38,6 +39,7 @@ public class Responsavel extends Usuario {
 		this.acoesUsuario();
 	}
 
+	// Lista alunos do usuário
 	private void listarAlunos() {
 		Integer i = 1;
 		for (Aluno aluno: this.alunos) {
@@ -52,6 +54,7 @@ public class Responsavel extends Usuario {
 		return "Responsável";
 	}
 
+	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Responsável
 	@Override
 	public void acoesUsuario() {
 		System.out.println(
