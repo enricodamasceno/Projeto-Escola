@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Coordenador extends Usuario {
-	
+
 	Scanner scanner = new Scanner(System.in);
 	protected static List<Coordenador> coordenadores = new ArrayList<>();
-	
+
 	public Coordenador(String login, String senha, String nome, Integer idade) {
 		super(login, senha, nome, idade);
 		Coordenador.coordenadores.add(this);
@@ -26,13 +26,13 @@ public class Coordenador extends Usuario {
 		String login_responsavel = scanner.nextLine();
 		System.out.println("Digite a senha do responsável: ");
 		String senha_responsavel = scanner.nextLine();
-		
+
 		new Responsavel(login_responsavel, senha_responsavel, nome_responsavel, idade_responsavel, new ArrayList<Aluno>());
 
 		System.out.println(
-			"Responsável cadastrado com sucesso.\n" +
-			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		);
+				"Responsável cadastrado com sucesso.\n" +
+						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+				);
 	}
 
 	// Método utilizado para cadastrar novos professores
@@ -51,9 +51,9 @@ public class Coordenador extends Usuario {
 		new Professor(login_professor, senha_professor, nome_professor, idade_professor);
 
 		System.out.println(
-			"Professor cadastrado com sucesso.\n" +
-			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-			);
+				"Professor cadastrado com sucesso.\n" +
+						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+				);
 	}
 
 	// Método 
@@ -64,35 +64,43 @@ public class Coordenador extends Usuario {
 		Turma turma_criada = new Turma(nomeTurma);
 
 		System.out.println(
-			"Você criou a turma: " + turma_criada.getNome() + ". Se quiser adicionar alunos, utilize a função Alterar Turma." + "\n"+
-			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		);
+				"Você criou a turma: " + turma_criada.getNome() + ". Se quiser adicionar alunos, utilize a função Alterar Turma." + "\n"+
+						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+				);
 	}
-	
+
 	// Método utilizado para alterar a turma
-	public void alterarTurma(List<Turma> turmas) {
-		System.out.println("Qual turma você deseja modificar?");
-		Turma.exibirInformacoes();
-		System.out.println("Escolha a turma que deseja alterar: ");
-		int numeroTurma = Integer.parseInt(scanner.nextLine());
-		// Verifica se a turma escolhida é válida
-		if (numeroTurma > turmas.size()) {
-			System.out.println(
-				"Número de turma inválido.\n" +
-				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-			);
+	public void alterarTurma() {
+
+		// Verifica se há turmas cadastradas
+		if (Turma.turmas.isEmpty()) {
+			System.out.println("Não há turmas cadastradas. \n"
+					+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			return;
 		}
-		
-		Turma turmaEscolhida = turmas.get(numeroTurma - 1);
-		System.out.println(
-			"Turma " + turmaEscolhida.getNome() + " escolhida.\n" + 
-			"Dentre os alunos abaixo selecione aqueles que deseja enturmar\n" +
-			"para tal utilize o índice dos alunos separados por vírgula segundo\n" +
-			"o molde: \"3, 4, 5, 8, 10, 14\" [sem aspas]"
-		);
 
-		// expõe os alunos disponíveis para enturme
+		System.out.println("Escolha a turma que deseja alterar: ");
+
+		Turma.exibirTurmas();
+		int numeroTurma = Integer.parseInt(scanner.nextLine());
+		// Verifica se a turma escolhida é válida
+		if (numeroTurma > Turma.turmas.size()) {
+			System.out.println(
+					"Número de turma inválido.\n" +
+							"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+					);
+			return;
+		}
+
+		Turma turmaEscolhida = Turma.turmas.get(numeroTurma - 1);
+		System.out.println(
+				"Turma " + turmaEscolhida.getNome() + " escolhida.\n" + 
+						"Dentre os alunos abaixo selecione aqueles que deseja enturmar\n" +
+						"para tal utilize o índice dos alunos separados por vírgula segundo\n" +
+						"o molde: \"3, 4, 5, 8, 10, 14\" [sem aspas]"
+				);
+
+		// expõe os alunos disponíveis para enturmar
 		Integer i = 1;
 		for(Aluno aluno: Aluno.alunos) {
 			System.out.println("[" + i + "] " + aluno.getNome());
@@ -108,14 +116,14 @@ public class Coordenador extends Usuario {
 			turmaEscolhida.getAlunos().add(Aluno.alunos.get(codigo_int - 1));
 			alunos_enturmados = alunos_enturmados + 1;
 		}
-		
+
 		System.out.println(
-			"Turma " + turmaEscolhida.getNome() + " modificada com sucesso.\n" + 
-			alunos_enturmados + " alunos enturmados.\n" +
-			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-		);
+				"Turma " + turmaEscolhida.getNome() + " modificada com sucesso.\n" + 
+						alunos_enturmados + " alunos enturmados.\n" +
+						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+				);
 	}
-	
+
 	@Override
 	public String getTipoUsuario() {
 		return "Coordenador";
@@ -125,41 +133,41 @@ public class Coordenador extends Usuario {
 	public void acoesUsuario() {
 		while (Escola_2.rodando_usuario == 1) {
 			System.out.println(
-				"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
-				"[1] CADASTRAR PROFESSOR\n" + 
-				"[2] CADASTRAR TURMA\n" +
-				"[3] CADASTRAR RESPONSÁVEL\n" +
-				"[4] ALTERAR TURMA\n" +
-				"[5] LOGOUT"
-			);
+					"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
+							"[1] CADASTRAR PROFESSOR\n" + 
+							"[2] CADASTRAR TURMA\n" +
+							"[3] CADASTRAR RESPONSÁVEL\n" +
+							"[4] ALTERAR TURMA\n" +
+							"[5] LOGOUT"
+					);
 			String acao = scanner.nextLine();
-			
+
 			switch (acao) {
-				case "1":
-					this.cadastrarProfessor();
-				break;
-	
-				case "2":
-					this.cadastrarTurma();
+			case "1":
+				this.cadastrarProfessor();
 				break;
 
-				case "3":
-					this.cadastrarResponsavel();
+			case "2":
+				this.cadastrarTurma();
 				break;
 
-				case "4":
-					this.alterarTurma(Turma.turmas);
+			case "3":
+				this.cadastrarResponsavel();
 				break;
-	
-				case "5":
-					System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
-					Escola_2.rodando_usuario = 0;
+
+			case "4":
+				this.alterarTurma();
 				break;
-				
-				default:
-					System.out.println("OPÇÃO INVÁLIDA");	
+
+			case "5":
+				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
+				Escola_2.rodando_usuario = 0;
+				break;
+
+			default:
+				System.out.println("OPÇÃO INVÁLIDA");	
 			}
 		}
 	}
-	
+
 }

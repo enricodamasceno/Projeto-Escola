@@ -36,32 +36,32 @@ public abstract class Usuario {
 		}
 		return novo_login;
 	}
-	  
+
 	// Método para verificar a senha.
 	public boolean verificarUsuario(String loginDigitado, String senhaDigitada) {
 		return this.senha.equals(senhaDigitada) && this.login.equals(loginDigitado);
 	}
-	  
+
 	// Método para alterar a senha.
 	protected void alterarSenha(String novaSenha) {
 		this.senha = novaSenha;
 	}
-	  
+
 	// Método abstrato para retornar o tipo do usuário no login.
 	public abstract String getTipoUsuario();
 
 	// Método abstrato para as funcionalidades de cada usuário após o login.
 	public abstract void acoesUsuario();
-	
-	// Método avastrato para o logout de cada usuário após o login.
+
+	// Método abstrato para o logout de cada usuário após o login.
 	public void logout() {
 	}
 
 	public String getLogin() {
 		return login;
 	}
-	  
+
 	public String getNome() {
 		return nome;
 	}
-	}
+}

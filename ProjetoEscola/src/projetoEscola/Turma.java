@@ -46,7 +46,7 @@ public class Turma {
 	}
 	
 	// Exibe informações das turmas:
-	public static void exibirInformacoes() {
+	public static void exibirTurmas() {
 		System.out.println("Informações das turmas: ");
 		
 		Integer i = 1;

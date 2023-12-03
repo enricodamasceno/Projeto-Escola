@@ -15,52 +15,33 @@ public class Escola_2 {
 
 		Scanner scanner = new Scanner(System.in);
 		while (rodando == 1) {
-		Usuario usuarioAutenticado = null;
+			Usuario usuarioAutenticado = null;
 
-		// INTRODUÇÃO AO SISTEMA
-		System.out.println("Bem-vindo ao Sistema da Escola!");
+			// INTRODUÇÃO AO SISTEMA
+			System.out.println("Bem-vindo ao Sistema da Escola!");
 
-		System.out.println("Digite o login do usuário: ");
-		String login = scanner.nextLine();
+			System.out.println("Digite o login do usuário: ");
+			String login = scanner.nextLine();
 
-		System.out.print("Digite a senha do usuário: ");
-		String senha = scanner.nextLine();
+			System.out.print("Digite a senha do usuário: ");
+			String senha = scanner.nextLine();
 
-		// VERIFICAÇÃO DO USUÁRIO
-		for (Usuario usuario: Usuario.usuarios) {
+			// VERIFICAÇÃO DO USUÁRIO
+			for (Usuario usuario: Usuario.usuarios) {
 
-			if (usuario.verificarUsuario(login, senha)) {
-				usuarioAutenticado = usuario;
+				if (usuario.verificarUsuario(login, senha)) {
+					usuarioAutenticado = usuario;
+				}
 			}
-		}
 
-		// DIVISÃO DAS LÓGICAS DE ACORDO COM A SUBCLASSE - pode ser isolado em um método, futuramente
-		if (usuarioAutenticado != null) {
-			if (usuarioAutenticado.getTipoUsuario() == "Aluno") {
-				System.out.println("Bem vindo, Aluno(a) " + usuarioAutenticado.getNome());
-				// Implementação da lógica do aluno.
-			}
-			
-			if (usuarioAutenticado.getTipoUsuario() == "Responsável") {
-				System.out.println("Bem vindo, Responsável " + usuarioAutenticado.getNome());
+			// DIVISÃO DAS LÓGICAS DE ACORDO COM A SUBCLASSE - pode ser isolado em um método, futuramente
+			if (usuarioAutenticado != null) {
 				rodando_usuario = 1;
+				System.out.println("Bem vindo, " + usuarioAutenticado.getNome() + "!");
 				usuarioAutenticado.acoesUsuario();
+			} else {
+				System.out.println("Usuário não encontrado.");
 			}
-			
-			if (usuarioAutenticado.getTipoUsuario() == "Professor") {
-				System.out.println("Bem vindo, Professor(a) " + usuarioAutenticado.getNome());
-				// Implementação da lógica do professor.
-			}
-			
-			if (usuarioAutenticado.getTipoUsuario() == "Coordenador") {
-				System.out.println("Bem vindo, Coordenador(a) " + usuarioAutenticado.getNome());
-				rodando_usuario = 1;
-				usuarioAutenticado.acoesUsuario();
-			}
-			
-		} else {
-			System.out.println("Usuário não encontrado.");
-		}
 		}
 		scanner.close();
 	}
