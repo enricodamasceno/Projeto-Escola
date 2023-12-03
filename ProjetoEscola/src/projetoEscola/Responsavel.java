@@ -36,7 +36,11 @@ public class Responsavel extends Usuario {
 		String senha_aluno = scanner.nextLine();
 		
 		this.alunos.add( new Aluno(login_aluno, senha_aluno, nome_aluno, idade_aluno, this) );
-		this.acoesUsuario();
+
+		System.out.println(
+			"Aluno matriculado com sucesso.\n" +
+			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
 	}
 
 	// Lista alunos do usuário
@@ -46,7 +50,7 @@ public class Responsavel extends Usuario {
 			System.out.println(i + " - " + aluno.getNome());
 			i = i + 1;
 		}
-		this.acoesUsuario();
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 	
 	@Override
@@ -57,24 +61,32 @@ public class Responsavel extends Usuario {
 	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Responsável
 	@Override
 	public void acoesUsuario() {
-		System.out.println(
-			"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
-			"[1] MATRICULAR ALUNO\n" + 
-			"[2] LISTAR ALUNOS"
-		);
-		String acao = scanner.nextLine();
-		
-		switch (acao) {
-			case "1":
-				this.matricularAluno();
-			break;
-
-			case "2":
-				this.listarAlunos();
-			break;
+		while (Escola_2.rodando_usuario == 1) {
+			System.out.println(
+				"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
+				"[1] MATRICULAR ALUNO\n" + 
+				"[2] LISTAR ALUNOS\n" +
+				"[3] LOGOUT"
+			);
+			String acao = scanner.nextLine();
 			
-			default:
-				System.out.println("OPÇÃO INVÁLIDA");	
+			switch (acao) {
+				case "1":
+					this.matricularAluno();
+				break;
+			
+				case "2":
+					this.listarAlunos();
+				break;
+			
+				case "3":
+					System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
+					Escola_2.rodando_usuario = 0;
+				break;
+				
+				default:
+					System.out.println("OPÇÃO INVÁLIDA");	
+			}
 		}
 	}
 	

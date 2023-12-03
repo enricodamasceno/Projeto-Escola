@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Professor extends Usuario {
 
-  protected static List<Professr> professres = new ArrayList<>();
+  protected static List<Professor> professores = new ArrayList<>();
   //public List<Atividade> atividade;
   //public List<Turma> turma;
   

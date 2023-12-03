@@ -6,23 +6,16 @@ import java.util.ArrayList;
 
 public class Escola_2 {
 
+	public static Integer rodando = 1;
+	public static Integer rodando_usuario;
+
 	public static void main(String[] args) {
 
+		Escola_2.cadastroForcado();
+
 		Scanner scanner = new Scanner(System.in);
-
+		while (rodando == 1) {
 		Usuario usuarioAutenticado = null;
-
-		//////////////// INSTANCIAMENTO DE USUÁRIOS ///////////////
-		
-		// Criando o responsável Jeferson
-		List<Aluno> alunosJeferson = new ArrayList<>();
-		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, alunosJeferson);
-
-		// Criando o aluno Roberto, cujo responsável é Jeferson
-		new Aluno("betohot", "amoeba123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
-
-		// Colocando o aluno Roberto dentro da lista de alunos do responsável Jeferson:
-		alunosJeferson.add(Aluno.alunos.get(0));
 
 		// INTRODUÇÃO AO SISTEMA
 		System.out.println("Bem-vindo ao Sistema da Escola!");
@@ -50,8 +43,8 @@ public class Escola_2 {
 			
 			if (usuarioAutenticado.getTipoUsuario() == "Responsável") {
 				System.out.println("Bem vindo, Responsável " + usuarioAutenticado.getNome());
+				rodando_usuario = 1;
 				usuarioAutenticado.acoesUsuario();
-				// Implementação da lógica do responsável.
 			}
 			
 			if (usuarioAutenticado.getTipoUsuario() == "Professor") {
@@ -61,13 +54,32 @@ public class Escola_2 {
 			
 			if (usuarioAutenticado.getTipoUsuario() == "Coordenador") {
 				System.out.println("Bem vindo, Coordenador(a) " + usuarioAutenticado.getNome());
-				// Implementação da lógica do coordenador.
+				rodando_usuario = 1;
+				usuarioAutenticado.acoesUsuario();
 			}
 			
 		} else {
 			System.out.println("Usuário não encontrado.");
 		}
+		}
 		scanner.close();
+	}
+
+	// Por opção da equipe não utilizaremos banco de dados, então esse método instancia alguns usuários para primeiro
+	// uso no código, no produto final entregue ao cliente que contrata a plataforma esse método não existiria.
+	public static void cadastroForcado() {
+
+		// Criando o responsável Jeferson
+		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, new ArrayList<>());
+
+		// Criando o aluno Roberto, cujo responsável é Jeferson
+		new Aluno("betohot", "amoeba123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
+
+		// Colocando o aluno Roberto dentro da lista de alunos do responsável Jeferson:
+		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(0));
+
+		// Criando o coordenador 
+		new Coordenador("ZeGil", "JG123", "José Gilvan", 43);
 	}
 
 }
