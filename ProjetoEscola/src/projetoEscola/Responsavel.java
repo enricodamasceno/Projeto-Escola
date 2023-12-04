@@ -58,6 +58,11 @@ public class Responsavel extends Usuario {
 		return "Responsável";
 	}
 
+	@Override
+	public void relatorio() {
+		
+	}
+
 	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Responsável
 	@Override
 	public void acoesUsuario() {

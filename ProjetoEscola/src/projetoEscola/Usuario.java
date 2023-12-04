@@ -53,9 +53,8 @@ public abstract class Usuario {
 	// Método abstrato para as funcionalidades de cada usuário após o login.
 	public abstract void acoesUsuario();
 
-	// Método abstrato para o logout de cada usuário após o login.
-	public void logout() {
-	}
+	// Método abstrato para o relatório de cada usuário após o login.
+	public abstract void relatorio();
 
 	public String getLogin() {
 		return login;

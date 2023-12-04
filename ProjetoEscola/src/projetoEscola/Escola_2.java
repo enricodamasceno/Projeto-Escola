@@ -54,13 +54,19 @@ public class Escola_2 {
 		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, new ArrayList<>());
 
 		// Criando o aluno Roberto, cujo responsável é Jeferson
-		new Aluno("betohot", "amoeba123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
+		new Aluno("beto", "beto123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
 
 		// Colocando o aluno Roberto dentro da lista de alunos do responsável Jeferson:
 		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(0));
 
 		// Criando o coordenador 
-		new Coordenador("ZeGil", "JG123", "José Gilvan", 43);
+		new Coordenador("ZeGil", "jg123", "José Gilvan", 43);
+
+		// Criando o professor
+		new Professor("citovictor", "cito123", "Víctor Citó", 22);
+
+		// Criando a turma
+		new Turma("EBSM2101");
 	}
 
 }

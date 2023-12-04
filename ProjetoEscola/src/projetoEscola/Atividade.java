@@ -7,12 +7,13 @@ import java.util.Scanner;;
 public class Atividade {
 	public String dataEntrega;
 	public String descricao;
+	public Turma turma;
 
 	Scanner scanner = new Scanner(System.in);
 
 	public static List<Atividade> atividades = new ArrayList<>();
 
-	public Atividade(String dataEntrega, String descricao) {
+	public Atividade(String dataEntrega, String descricao, Turma turmaEscolhida) {
 		this.dataEntrega = dataEntrega;
 		this.descricao = descricao;
 		for (Atividade atividade : atividades) {
@@ -20,6 +21,9 @@ public class Atividade {
 				this.descricao = this.validaDescricao();
 			}
 		}
+		this.turma = turmaEscolhida;
+		Atividade.atividades.add(this);
+		turmaEscolhida.distribuiAtividade(this);
 	}
 
 	// Função utilizada para a verificação da descrição

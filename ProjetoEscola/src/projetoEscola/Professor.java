@@ -13,19 +13,41 @@ public class Professor extends Usuario {
 		Professor.professores.add(this);
 	}
 
-	private Atividade cadastrarAtividade() {
+	private void cadastrarAtividade() {
+		// Verifica se há turmas cadastradas
+		if (Turma.turmas.isEmpty()) {
+			System.out.println(
+				"Não há turmas cadastradas. \n" + 
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
 		System.out.println("OPÇÃO ESCOLHIDA: CADASTRAR ATIVIDADE");
 		System.out.println("Informe a data de entrega da atividade: ");
 		String data = scanner.nextLine();
 		System.out.println("Informe a descrição da atividade: ");
 		String descricao = scanner.nextLine();
+		System.out.println("Escolha a turma a qual a atividade será atribuída: ");
+		Turma.exibirTurmas();
+		Integer numero_turma = Integer.parseInt(scanner.nextLine());
+		if (numero_turma > Turma.turmas.size()) {
+			System.out.println(
+				"Número de turma inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
 
-		Atividade.atividades.add(new Atividade(data, descricao));
+		Turma turmaEscolhida = Turma.turmas.get(numero_turma - 1);
+		System.out.println("Turma: " + turmaEscolhida.getNome() + "\n");
+
+
+		new Atividade(data, descricao, turmaEscolhida);
 		System.out.println(
 				"Atividade cadastrada com sucesso.\n" +
 				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 				);
-		return null;
+		return;
 	}
 
 	private void alterarAtividade() {
@@ -112,12 +134,10 @@ public class Professor extends Usuario {
 		}
 	}
 
-	private Nota lancarNota() {
-		return null;
+	private void lancarNota() {
 	}
 
-	public Nota alterarNota() {
-		return null;
+	public void alterarNota() {
 	}
 
 	@Override
@@ -125,46 +145,51 @@ public class Professor extends Usuario {
 		return "Professor";
 	}
 
+	@Override
+	public void relatorio() {
+		
+	}
+
 	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Professor
 	@Override
 	public void acoesUsuario() {
 		while (Escola_2.rodando_usuario == 1) {
 			System.out.println(
-					"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
-							"[1] CADASTRAR ATIVIDADE\n" + 
-							"[2] ALTERAR ATIVIDADE\n" +
-							"[3] EXCLUIR ATIVIDADE\n" +
-							"[4] LANÇAR NOTA\n" +
-							"[5] ALTERAR NOTA\n" +
-							"[6] LOGOUT\n"
-					);
+				"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
+				"[1] CADASTRAR ATIVIDADE\n" + 
+				"[2] ALTERAR ATIVIDADE\n" +
+				"[3] EXCLUIR ATIVIDADE\n" +
+				"[4] LANÇAR NOTA\n" +
+				"[5] ALTERAR NOTA\n" +
+				"[6] LOGOUT\n"
+			);
 			String acao = scanner.nextLine();
 
 			switch (acao) {
 			case "1":
 				this.cadastrarAtividade();
-				break;
+			break;
 
 			case "2":
 				this.alterarAtividade();
-				break;
+			break;
 
 			case "3":
 				this.excluirAtividade();
-				break;
+			break;
 
 			case "4":
 				this.lancarNota();
-				break;
+			break;
 
 			case "5":
 				this.alterarNota();
-				break;
+			break;
 
 			case "6":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
-				break;
+			break;
 
 			default:
 				System.out.println("OPÇÃO INVÁLIDA");	

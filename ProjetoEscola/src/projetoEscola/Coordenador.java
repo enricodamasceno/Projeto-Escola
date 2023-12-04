@@ -130,6 +130,11 @@ public class Coordenador extends Usuario {
 	}
 
 	@Override
+	public void relatorio() {
+		
+	}
+
+	@Override
 	public void acoesUsuario() {
 		while (Escola_2.rodando_usuario == 1) {
 			System.out.println(
