@@ -28,6 +28,10 @@ public class Aluno extends Usuario {
 		this.atividade_por_fazer.add(atividade);
 	}
 
+	public void retiraAtividade(Atividade atividade) {
+		this.atividade_por_fazer.remove(atividade);
+	}
+
 	private void enviarAtividade() {
 		// Verifica se há atividades cadastradas
 		if (this.atividade_por_fazer.isEmpty()) {
@@ -87,6 +91,25 @@ public class Aluno extends Usuario {
 
 	@Override
 	public void relatorio() {
+		if (this.atividades_corrigidas.keySet().size() == 0) {
+			System.out.println("Sem atividade corrigida para gerar relatório!");
+			return;
+		}
+
+		Integer i = 1;
+		System.out.println("~~~~~~RELATÓRIO DE ATIVIDADES~~~~~~~");
+		for (Atividade atividade: this.atividades_corrigidas.keySet()) {
+			System.out.println(
+				"[" + i + "ª ATIVIDADE]\n" +
+				"DESCRIÇÃO: " + atividade.descricao + "\n" +
+				"RESPOSTA: " + this.atividades_realizadas.get(atividade) + "\n" +
+				"NOTA ATRIBUÍDA: " + this.atividades_corrigidas.get(atividade).getPontos() + "\n" +
+				"DATA DA CORREÇÃO: " + this.atividades_corrigidas.get(atividade).getData() + "\n" +
+				"------------------------------------"
+			);
+			i = i + 1;
+		}
+		System.out.println("~~~~~~FIM DO RELATÓRIO~~~~~~");
 
 	}
 

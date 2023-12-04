@@ -126,6 +126,7 @@ public class Professor extends Usuario {
 		switch(acao) {
 		case "1":
 			Atividade.atividades.remove(atividadeEscolhida);
+			atividadeEscolhida.turma.retiraAtividade(atividadeEscolhida);
 			System.out.println("ATIVIDADE EXCLUÍDA.");
 			break;
 		case "2":

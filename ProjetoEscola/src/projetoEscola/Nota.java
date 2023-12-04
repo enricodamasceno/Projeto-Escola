@@ -8,4 +8,12 @@ public class Nota {
 		this.dataCorrecao = dataCorrecao;
 		this.pontos = pontos;
 	}
+
+	public float getPontos() {
+		return pontos;
+	}
+
+	public String getData() {
+		return dataCorrecao;
+	}
 }

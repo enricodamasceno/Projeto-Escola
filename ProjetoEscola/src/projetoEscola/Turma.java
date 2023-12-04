@@ -30,6 +30,13 @@ public class Turma {
 		Turma.turmas.add(this);
 	}
 
+	public void retiraAtividade(Atividade atividade) {
+		this.atividades_listadas.remove(atividade);
+		for (Aluno aluno: this.alunos) {
+			aluno.retiraAtividade(atividade);
+		}
+	}
+
 	public void recebeResposta(Aluno aluno, Atividade atividade) {
 		if (this.dicionario_aluno_atividade.containsKey(aluno)) {
 			this.dicionario_aluno_atividade.get(aluno).put(atividade, aluno.atividades_realizadas.get(atividade));
@@ -43,7 +50,7 @@ public class Turma {
 
 	public void distribuiAtividade(Atividade atividade) {
 		this.atividades_listadas.add(atividade);
-		for (Aluno aluno: Aluno.alunos) {
+		for (Aluno aluno: this.alunos) {
 			aluno.recebeAtividade(atividade);
 		}
 	}
