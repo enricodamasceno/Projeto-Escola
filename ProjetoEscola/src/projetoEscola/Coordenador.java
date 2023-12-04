@@ -143,31 +143,41 @@ public class Coordenador extends Usuario {
 							"[2] CADASTRAR TURMA\n" +
 							"[3] CADASTRAR RESPONSÁVEL\n" +
 							"[4] ALTERAR TURMA\n" +
-							"[5] LOGOUT"
+							"[5] GERAR RELATÓRIO\n" +
+							"[6] ALTERAR SENHA\n" +
+							"[7] LOGOUT"
 					);
 			String acao = scanner.nextLine();
 
 			switch (acao) {
 			case "1":
 				this.cadastrarProfessor();
-				break;
+			break;
 
 			case "2":
 				this.cadastrarTurma();
-				break;
+			break;
 
 			case "3":
 				this.cadastrarResponsavel();
-				break;
+			break;
 
 			case "4":
 				this.alterarTurma();
-				break;
+			break;
 
 			case "5":
+				this.relatorio();
+			break;
+
+			case "6":
+				this.alterarSenha();
+			break;
+
+			case "7":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
-				break;
+			break;
 
 			default:
 				System.out.println("OPÇÃO INVÁLIDA");	

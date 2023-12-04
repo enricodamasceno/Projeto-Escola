@@ -71,7 +71,9 @@ public class Responsavel extends Usuario {
 					"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
 							"[1] MATRICULAR ALUNO\n" + 
 							"[2] LISTAR ALUNOS\n" +
-							"[3] LOGOUT"
+							"[3] GERAR RELATÓRIO\n" +
+							"[4] ALTERAR SENHA\n" +
+							"[5] LOGOUT"
 					);
 			String acao = scanner.nextLine();
 
@@ -85,9 +87,17 @@ public class Responsavel extends Usuario {
 				break;
 
 			case "3":
+				this.relatorio();
+			break;
+
+			case "4":
+				this.alterarSenha();
+			break;
+
+			case "5":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
-				break;
+			break;
 
 			default:
 				System.out.println("OPÇÃO INVÁLIDA");	

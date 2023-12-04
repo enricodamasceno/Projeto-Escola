@@ -43,7 +43,9 @@ public abstract class Usuario {
 	}
 
 	// Método para alterar a senha.
-	protected void alterarSenha(String novaSenha) {
+	protected void alterarSenha() {
+		System.out.println("Digite a nova senha: ");
+		String novaSenha = scanner.nextLine();
 		this.senha = novaSenha;
 	}
 

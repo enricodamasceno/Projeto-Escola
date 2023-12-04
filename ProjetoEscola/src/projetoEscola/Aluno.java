@@ -10,8 +10,6 @@ public class Aluno extends Usuario {
 
 	public Responsavel responsavel;
 	protected static List<Aluno> alunos = new ArrayList<>();
-	//public List<Turma> turma;
-	//public List<Nota> nota;
 	private List<Atividade> atividade_por_fazer;
 	public Map<Atividade, String> atividades_realizadas;
 
@@ -98,7 +96,8 @@ public class Aluno extends Usuario {
 				"Dentre as opções abaixo escolha qual ação deseja realizar: \n" + 
 				"[1] REALIZAR ATIVIDADE\n" + 
 				"[2] GERAR RELATÓRIO\n" +
-				"[3] LOGOUT\n"
+				"[3] ALTERAR SENHA\n" +
+				"[4] LOGOUT\n"
 			);
 			String acao = scanner.nextLine();
 
@@ -112,6 +111,10 @@ public class Aluno extends Usuario {
 			break;
 
 			case "3":
+				this.alterarSenha();
+			break;
+
+			case "4":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
 			break;

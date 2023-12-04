@@ -161,7 +161,9 @@ public class Professor extends Usuario {
 				"[3] EXCLUIR ATIVIDADE\n" +
 				"[4] LANÇAR NOTA\n" +
 				"[5] ALTERAR NOTA\n" +
-				"[6] LOGOUT\n"
+				"[6] GERAR RELATÓRIO\n" +
+				"[7] ALTERAR SENHA\n" +
+				"[8] LOGOUT\n"
 			);
 			String acao = scanner.nextLine();
 
@@ -185,8 +187,16 @@ public class Professor extends Usuario {
 			case "5":
 				this.alterarNota();
 			break;
-
+			
 			case "6":
+				this.relatorio();
+			break;
+
+			case "7":
+				this.alterarSenha();
+			break;
+
+			case "8":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
 			break;
