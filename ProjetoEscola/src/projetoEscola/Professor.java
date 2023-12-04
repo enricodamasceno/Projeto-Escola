@@ -18,9 +18,9 @@ public class Professor extends Usuario {
 		System.out.println("Informe a data de entrega da atividade: ");
 		String data = scanner.nextLine();
 		System.out.println("Informe a descrição da atividade: ");
-		String tipo = scanner.nextLine();
+		String descricao = scanner.nextLine();
 
-		Atividade.atividades.add(new Atividade(data, tipo));
+		Atividade.atividades.add(new Atividade(data, descricao));
 		System.out.println(
 				"Atividade cadastrada com sucesso.\n" +
 						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -52,6 +52,8 @@ public class Professor extends Usuario {
 		}
 		Atividade atividadeEscolhida = Atividade.atividades.get(numeroAtividade - 1);
 		System.out.println("Atividade: " + atividadeEscolhida.descricao + "\n");
+
+		// Recebe os novos parâmetros da atividade
 		System.out.println("Informe a nova data de entrega da atividade: ");
 		String novaData = scanner.nextLine();
 		System.out.println("Informe a nova descrição da atividade: ");
@@ -83,9 +85,12 @@ public class Professor extends Usuario {
 					);
 			return;
 		}
+		// Confere a atividade para o usuário
 		Atividade atividadeEscolhida = Atividade.atividades.get(numeroAtividade - 1);
 		System.out.println("Atividade: " + atividadeEscolhida.descricao);
 		System.out.println("Data de entrega: " + atividadeEscolhida.dataEntrega + "\n");
+
+		// Confirma a exclusão
 		System.out.println("DESEJA EXCLUIR A ATIVIDADE? \n"
 				+ "[1] Sim. \n"
 				+ "[2] Não. \n"
@@ -100,7 +105,6 @@ public class Professor extends Usuario {
 			System.out.println("ATIVIDADE NÃO EXCLUÍDA.");
 			break;
 		}
-		Atividade.exibirAtividades();
 	}
 
 	private Nota lancarNota() {
