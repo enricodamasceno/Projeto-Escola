@@ -135,6 +135,56 @@ public class Professor extends Usuario {
 	}
 
 	private void lancarNota() {
+
+		System.out.println("Escolha a turma que deseja abrir: ");
+		Turma.exibirTurmas();
+		Integer numero_turma = Integer.parseInt(scanner.nextLine());
+		if (numero_turma > Turma.turmas.size()) {
+			System.out.println(
+				"Número de turma inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
+		Turma turmaEscolhida = Turma.turmas.get(numero_turma - 1);
+		System.out.println("Turma: " + turmaEscolhida.getNome() + "\n");
+		System.out.println("Escolha a atividade que deseja corrigir: ");
+		turmaEscolhida.exibirAtividades();
+
+		Integer numero_atividade = Integer.parseInt(scanner.nextLine());
+		if (numero_atividade > turmaEscolhida.atividades_listadas.size()) {
+			System.out.println(
+				"Número de atividade inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
+		Atividade atividadeEscolhida = turmaEscolhida.atividades_listadas.get(numero_atividade - 1);
+
+		System.out.println("Digite a data de hoje: ");
+		String data_correcao = scanner.nextLine();
+		for (Aluno aluno: turmaEscolhida.dicionario_aluno_atividade.keySet()) {
+			if (!(turmaEscolhida.dicionario_aluno_atividade.get(aluno).containsKey(atividadeEscolhida))) {
+				System.out.println(
+					"ALUNO: " + aluno.getNome() + "\n" +
+					"DEVENDO ATIVIDADE!!!\n" +
+					"----------------------"
+				);
+				continue;
+			}
+			if (aluno.atividades_corrigidas.containsKey(atividadeEscolhida)) {
+				continue;
+			}
+			System.out.println(
+				"ALUNO: " + aluno.getNome() + "\n" +
+				"ATIVIDADE: " + atividadeEscolhida.descricao + "\n" +
+				"RESPOSTA: " + turmaEscolhida.dicionario_aluno_atividade.get(aluno).get(atividadeEscolhida)
+			);
+			System.out.println("Digite um valor para a nota do aluno " + aluno.getNome() + ": ");
+			float nota_aluno = Float.parseFloat(scanner.nextLine());
+			aluno.atividades_corrigidas.put(atividadeEscolhida, new Nota(data_correcao, nota_aluno));
+			
+		}
 	}
 
 	public void alterarNota() {

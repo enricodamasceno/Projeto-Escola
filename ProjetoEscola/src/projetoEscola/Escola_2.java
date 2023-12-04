@@ -53,11 +53,15 @@ public class Escola_2 {
 		// Criando o responsável Jeferson
 		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, new ArrayList<>());
 
-		// Criando o aluno Roberto, cujo responsável é Jeferson
+		// Criando alunos, cujo responsável é Jeferson
 		new Aluno("beto", "beto123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
+		new Aluno("citohebe", "cito123", "Hebe Citó", 61, Responsavel.responsaveis.get(0));
+		new Aluno("citocaio", "cito123", "Caio Citó", 26, Responsavel.responsaveis.get(0));
 
-		// Colocando o aluno Roberto dentro da lista de alunos do responsável Jeferson:
+		// Colocando os alunos dentro da lista de alunos do responsável Jeferson:
 		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(0));
+		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(1));
+		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(2));
 
 		// Criando o coordenador 
 		new Coordenador("ZeGil", "jg123", "José Gilvan", 43);

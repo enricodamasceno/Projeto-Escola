@@ -12,7 +12,7 @@ public class Turma {
 	private String nome;
 	private List<Aluno> alunos;
 	public static List<Turma> turmas = new ArrayList<>(); // Atributo estático da lista de turmas.
-	private List<Atividade> atividades_listadas;
+	public List<Atividade> atividades_listadas;
 	public Map<Aluno, Map> dicionario_aluno_atividade;
  	
 	public Turma(String nome) {
@@ -67,6 +67,19 @@ public class Turma {
 
 	public List<Aluno> getAlunos(){
 		return alunos;
+	}
+
+	public void exibirAtividades() {
+		Integer i = 1;
+		for (Atividade atividade : this.atividades_listadas) {
+			System.out.println(
+				"Atividade: " + i + "\n" +
+				"Data de entrega: " + atividade.dataEntrega + "\n" + 
+				"Descrição: " + atividade.descricao + "\n" +
+				"----------------------"
+			);
+			i = i + 1;
+		}
 	}
 	
 	// Exibe informações das turmas:

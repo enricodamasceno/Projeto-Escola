@@ -1,10 +1,10 @@
 package projetoEscola;
 
 public class Nota {
-	public Integer dataCorrecao;
-	private Integer pontos;
+	private String dataCorrecao;
+	private float pontos;
 	
-	public Nota(Integer dataCorrecao, Integer pontos) {
+	public Nota(String dataCorrecao, float pontos) {
 		this.dataCorrecao = dataCorrecao;
 		this.pontos = pontos;
 	}

@@ -12,6 +12,7 @@ public class Aluno extends Usuario {
 	protected static List<Aluno> alunos = new ArrayList<>();
 	private List<Atividade> atividade_por_fazer;
 	public Map<Atividade, String> atividades_realizadas;
+	public Map<Atividade, Nota> atividades_corrigidas = new HashMap<Atividade, Nota>();;
 
 	public Aluno(String login, String senha, String nome, Integer idade, Responsavel responsavel) {
 
@@ -19,7 +20,7 @@ public class Aluno extends Usuario {
 		super(login, senha, nome, idade);
 		this.responsavel = responsavel;
 		this.atividade_por_fazer = new ArrayList<>();
-		this.atividades_realizadas = new HashMap<Atividade,String>();
+		this.atividades_realizadas = new HashMap<Atividade, String>();
 		Aluno.alunos.add(this);
 	}
 
