@@ -23,7 +23,7 @@ public class Professor extends Usuario {
 		Atividade.atividades.add(new Atividade(data, descricao));
 		System.out.println(
 				"Atividade cadastrada com sucesso.\n" +
-						"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 				);
 		return null;
 	}
@@ -33,8 +33,10 @@ public class Professor extends Usuario {
 
 		// Verifica se há atividades cadastradas
 		if (Atividade.atividades.isEmpty()) {
-			System.out.println("Não há atividades cadastradas. \n"
-					+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(
+				"Não há atividades cadastradas. \n" + 
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
 			return;
 		}
 
@@ -45,9 +47,9 @@ public class Professor extends Usuario {
 		// Verifica se a atividade escolhida é válida
 		if (numeroAtividade > Atividade.atividades.size()) {
 			System.out.println(
-					"Número de atividade inválido.\n" +
-							"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-					);
+				"Número de atividade inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
 			return;
 		}
 		Atividade atividadeEscolhida = Atividade.atividades.get(numeroAtividade - 1);
@@ -68,8 +70,10 @@ public class Professor extends Usuario {
 
 		// Verifica se há atividades cadastradas
 		if (Atividade.atividades.isEmpty()) {
-			System.out.println("Não há atividades cadastradas. \n"
-					+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println(
+				"Não há atividades cadastradas. \n"
+				+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
 			return;
 		}
 
@@ -80,9 +84,9 @@ public class Professor extends Usuario {
 		// Verifica se a atividade escolhida é válida
 		if (numeroAtividade > Atividade.atividades.size()) {
 			System.out.println(
-					"Número de atividade inválido.\n" +
-							"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-					);
+				"Número de atividade inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
 			return;
 		}
 		// Confere a atividade para o usuário
@@ -91,10 +95,11 @@ public class Professor extends Usuario {
 		System.out.println("Data de entrega: " + atividadeEscolhida.dataEntrega + "\n");
 
 		// Confirma a exclusão
-		System.out.println("DESEJA EXCLUIR A ATIVIDADE? \n"
-				+ "[1] Sim. \n"
-				+ "[2] Não. \n"
-				);
+		System.out.println(
+			"DESEJA EXCLUIR A ATIVIDADE? \n" + 
+			"[1] Sim. \n" + 
+			"[2] Não. \n"
+		);
 		String acao = scanner.nextLine();
 		switch(acao) {
 		case "1":

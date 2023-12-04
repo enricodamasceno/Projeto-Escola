@@ -40,11 +40,11 @@ public class Atividade {
 		Integer i = 1;
 		for (Atividade atividade : atividades) {
 			System.out.println(
-					"Atividade: " + i + "\n" +
-					"Data de entrega: " + atividade.dataEntrega + "\n" + 
-					"Descrição: " + atividade.descricao + "\n" +
-					"----------------------"
-					);
+				"Atividade: " + i + "\n" +
+				"Data de entrega: " + atividade.dataEntrega + "\n" + 
+				"Descrição: " + atividade.descricao + "\n" +
+				"----------------------"
+			);
 			i = i + 1;
 		}
 	}
