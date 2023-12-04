@@ -60,7 +60,19 @@ public class Responsavel extends Usuario {
 
 	@Override
 	public void relatorio() {
-		
+		System.out.println("Escolha o aluno que deseja ver o relatório: ");
+		this.listarAlunos();
+		Integer numero_aluno = Integer.parseInt(scanner.nextLine());
+		if (numero_aluno > this.alunos.size()) {
+			System.out.println(
+				"Número de aluno inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
+		Aluno aluno_escolhido = this.alunos.get(numero_aluno - 1);
+
+		aluno_escolhido.relatorio();
 	}
 
 	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Responsável

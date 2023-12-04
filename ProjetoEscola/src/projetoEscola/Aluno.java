@@ -63,7 +63,10 @@ public class Aluno extends Usuario {
 
 		atividadeEscolhida.turma.recebeResposta(this, atividadeEscolhida);
 
-		System.out.println("Atividade enviada com sucesso");
+		System.out.println(
+			"Atividade enviada com sucesso\n" +
+			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
+		);
 
 	}
 
@@ -97,7 +100,7 @@ public class Aluno extends Usuario {
 		}
 
 		Integer i = 1;
-		System.out.println("~~~~~~RELATÓRIO DE ATIVIDADES~~~~~~~");
+		System.out.println("~~~~~~RELATÓRIO DE ATIVIDADES INDIVIDUAL~~~~~~~");
 		for (Atividade atividade: this.atividades_corrigidas.keySet()) {
 			System.out.println(
 				"[" + i + "ª ATIVIDADE]\n" +
@@ -109,7 +112,7 @@ public class Aluno extends Usuario {
 			);
 			i = i + 1;
 		}
-		System.out.println("~~~~~~FIM DO RELATÓRIO~~~~~~");
+		System.out.println("~~~~~~FIM DO RELATÓRIO INDIVIDUAL~~~~~~");
 
 	}
 

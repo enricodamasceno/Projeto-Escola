@@ -131,7 +131,28 @@ public class Coordenador extends Usuario {
 
 	@Override
 	public void relatorio() {
-		
+		System.out.println("Escolha a turma que deseja abrir: ");
+		Turma.exibirTurmas();
+		Integer numero_turma = Integer.parseInt(scanner.nextLine());
+		if (numero_turma > Turma.turmas.size()) {
+			System.out.println(
+				"Número de turma inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
+		Turma turmaEscolhida = Turma.turmas.get(numero_turma - 1);
+
+		Integer i = 1;
+		System.out.println("~~~~~~~~~~RELATÓRIO DE ATIVIDADES GERAL~~~~~~~~~~~");
+		for (Aluno aluno: turmaEscolhida.getAlunos()) {
+			System.out.println(
+				"[" + i + "º ALUNO]" + aluno.getNome()
+			);
+			aluno.relatorio();
+			i = i + 1;
+		}
+		System.out.println("~~~~~~~~~~FIM DO RELATÓRIO GERAL~~~~~~~~~~");
 	}
 
 	@Override

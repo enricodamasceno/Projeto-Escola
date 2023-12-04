@@ -136,7 +136,6 @@ public class Professor extends Usuario {
 	}
 
 	private void lancarNota() {
-
 		System.out.println("Escolha a turma que deseja abrir: ");
 		Turma.exibirTurmas();
 		Integer numero_turma = Integer.parseInt(scanner.nextLine());
@@ -184,8 +183,8 @@ public class Professor extends Usuario {
 			System.out.println("Digite um valor para a nota do aluno " + aluno.getNome() + ": ");
 			float nota_aluno = Float.parseFloat(scanner.nextLine());
 			aluno.atividades_corrigidas.put(atividadeEscolhida, new Nota(data_correcao, nota_aluno));
-			
 		}
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
 	public void alterarNota() {
@@ -198,7 +197,27 @@ public class Professor extends Usuario {
 
 	@Override
 	public void relatorio() {
-		
+		System.out.println("Escolha a turma que deseja abrir: ");
+		Turma.exibirTurmas();
+		Integer numero_turma = Integer.parseInt(scanner.nextLine());
+		if (numero_turma > Turma.turmas.size()) {
+			System.out.println(
+				"Número de turma inválido.\n" +
+				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+			);
+			return;
+		}
+		Turma turmaEscolhida = Turma.turmas.get(numero_turma - 1);
+
+		Integer i = 1;
+		System.out.println("~~~~~~~~~~RELATÓRIO DE ATIVIDADES GERAL~~~~~~~~~~~");
+		for (Aluno aluno: turmaEscolhida.getAlunos()) {
+			System.out.println(
+				"[" + i + "º ALUNO]" + aluno.getNome()
+			);
+			aluno.relatorio();
+		}
+		System.out.println("~~~~~~~~~~FIM DO RELATÓRIO GERAL~~~~~~~~~~");
 	}
 
 	// Sobrescreve a função acoesUsuario() dando funcionalidade ao Professor
