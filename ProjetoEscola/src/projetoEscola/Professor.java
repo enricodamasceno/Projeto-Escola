@@ -187,9 +187,6 @@ public class Professor extends Usuario {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
-	public void alterarNota() {
-	}
-
 	@Override
 	public String getTipoUsuario() {
 		return "Professor";
@@ -230,10 +227,9 @@ public class Professor extends Usuario {
 				"[2] ALTERAR ATIVIDADE\n" +
 				"[3] EXCLUIR ATIVIDADE\n" +
 				"[4] LANÇAR NOTA\n" +
-				"[5] ALTERAR NOTA\n" +
-				"[6] GERAR RELATÓRIO\n" +
-				"[7] ALTERAR SENHA\n" +
-				"[8] LOGOUT\n"
+				"[5] GERAR RELATÓRIO\n" +
+				"[6] ALTERAR SENHA\n" +
+				"[7] LOGOUT\n"
 			);
 			String acao = scanner.nextLine();
 
@@ -255,18 +251,14 @@ public class Professor extends Usuario {
 			break;
 
 			case "5":
-				this.alterarNota();
-			break;
-			
-			case "6":
 				this.relatorio();
 			break;
 
-			case "7":
+			case "6":
 				this.alterarSenha();
 			break;
 
-			case "8":
+			case "7":
 				System.out.println("VOCÊ ESTÁ SAINDO DO AMBIENTE");
 				Escola_2.rodando_usuario = 0;
 			break;

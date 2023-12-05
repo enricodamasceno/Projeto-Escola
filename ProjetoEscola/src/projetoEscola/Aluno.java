@@ -56,6 +56,7 @@ public class Aluno extends Usuario {
 		}
 		Atividade atividadeEscolhida = this.atividade_por_fazer.get(numeroAtividade - 1);
 		System.out.println(atividadeEscolhida.descricao);
+		System.out.println("Insira o link para sua resolução: ");
 		String resposta = scanner.nextLine();
 
 		this.atividades_realizadas.put(atividadeEscolhida, resposta);

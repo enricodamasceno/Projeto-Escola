@@ -47,6 +47,7 @@ public abstract class Usuario {
 		System.out.println("Digite a nova senha: ");
 		String novaSenha = scanner.nextLine();
 		this.senha = novaSenha;
+		System.out.println("Senha alterada com sucesso.");
 	}
 
 	// Método abstrato para retornar o tipo do usuário no login.

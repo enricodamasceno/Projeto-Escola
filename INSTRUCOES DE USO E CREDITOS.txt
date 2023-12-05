@@ -1,7 +1,7 @@
 Para a correta utilização do código faça o download de todos os arquivos do arquivo compactado e execute a função main do arquivo src/Escola_2.class
 
 Durante a execução do código fonte sua utilização é bem intuitiva oferecendo as possibilidades de cada usuário.
-Por opção do grupo não temos um banco de dados, no lugar disso instanciamos os objetos a cada execução do código, para uma primeira utilização
+Por opção do grupo não temos um banco de dados, no lugar disso instanciamos alguns objetos a cada execução do código, para uma primeira utilização
 do código alguns objetos são instanciados, 6 usuários sendo eles 1 responsável, 3 alunos, 1 coordenador e 1 professor, e uma turma.
 Para a melhor utilização do código inicialmente faça o login com o perfil do coordenador (login: ZeGil, senha: jg123) e use a opção de alterar
 turma, com isso enturme pelo menos um aluno na turma que ja está previamente criada.

@@ -1,7 +1,6 @@
 package projetoEscola;
 
 import java.util.Scanner;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Escola_2 {
@@ -47,7 +46,7 @@ public class Escola_2 {
 	}
 
 	// Por opção da equipe não utilizaremos banco de dados, então esse método instancia alguns usuários para primeiro
-	// uso no código, no produto final entregue ao cliente que contrata a plataforma esse método não existiria.
+	// uso no código. No produto final entregue ao cliente, esse método não existiria.
 	public static void cadastroForcado() {
 
 		// Criando o responsável Jeferson
