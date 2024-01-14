@@ -49,11 +49,11 @@ public class Escola_2 {
 	// uso no código. No produto final entregue ao cliente, esse método não existiria.
 	public static void cadastroForcado() {
 
-		// Criando o responsável Jeferson
-		new Responsavel("jeferson", "jefão123", "Jeferson Arley", 45, new ArrayList<>());
+		// Criando o responsável Adriano
+		new Responsavel("Adriano", "adriano000", "Adriano Bezerra", 45, new ArrayList<>());
 
 		// Criando alunos, cujo responsável é Jeferson
-		new Aluno("beto", "beto123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
+		new Aluno("roberto", "roberto123", "Roberto Arley", 15, Responsavel.responsaveis.get(0));
 		new Aluno("citohebe", "cito123", "Hebe Citó", 61, Responsavel.responsaveis.get(0));
 		new Aluno("citocaio", "cito123", "Caio Citó", 26, Responsavel.responsaveis.get(0));
 
@@ -63,14 +63,13 @@ public class Escola_2 {
 		Responsavel.responsaveis.get(0).alunos.add(Aluno.alunos.get(2));
 
 		// Criando o coordenador 
-		new Coordenador("ZeGil", "jg123", "José Gilvan", 43);
+		new Coordenador("gilvan", "josegilvan", "José Gilvan", 43);
 
 		// Criando o professor
-		new Professor("citovictor", "cito123", "Víctor Citó", 22);
+		new Professor("citovictor", "cito@2002", "Víctor Citó", 22);
 
 		// Criando a turma
 		new Turma("EBSM2101");
 	}
 
 }
-
